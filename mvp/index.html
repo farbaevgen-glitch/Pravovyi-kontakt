@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Правовий контакт — MVP</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Правовий контакт</h1>
+      <p class="subtitle">Права · Фіксація · Скарга</p>
+    </header>
+
+    <!-- Крок 1: Вибір ситуації -->
+    <section id="step-situation" class="card">
+      <h2>1. Оберіть ситуацію</h2>
+      <div id="situation-list" class="situation-list"></div>
+    </section>
+
+    <!-- Крок 2: Роз’яснення -->
+    <section id="step-info" class="card hidden">
+      <h2 id="info-title">Роз’яснення</h2>
+      <div id="info-content"></div>
+      <button id="btn-to-form" class="btn primary">Перейти до фіксації даних →</button>
+    </section>
+
+    <!-- Крок 3: Фіксація ідентифікації -->
+    <section id="step-form" class="card hidden">
+      <h2>2. Фіксація даних поліцейського</h2>
+      <p class="hint">Ці дані поліцейський зобов’язаний назвати і показати (ст. 18 Закону «Про Національну поліцію»).</p>
+      
+      <form id="id-form">
+        <div class="form-group">
+          <label>Номер жетона *</label>
+          <input type="text" id="badge" placeholder="Наприклад: 12345" required />
+        </div>
+        <div class="form-group">
+          <label>Прізвище, ім’я, по батькові</label>
+          <input type="text" id="fullname" placeholder="Як назвав себе" />
+        </div>
+        <div class="form-group">
+          <label>Посада / звання</label>
+          <input type="text" id="rank" placeholder="Інспектор / сержант тощо" />
+        </div>
+        <div class="form-group">
+          <label>Номер службового авто</label>
+          <input type="text" id="car" placeholder="АА 1234 ВВ" />
+        </div>
+        <div class="form-group">
+          <label>Підрозділ (якщо відомо)</label>
+          <input type="text" id="unit" />
+        </div>
+        <div class="form-group">
+          <label>Дата і час</label>
+          <input type="datetime-local" id="datetime" />
+        </div>
+        <div class="form-group">
+          <label>Місце події</label>
+          <input type="text" id="place" placeholder="Місто, вулиця, орієнтири" />
+        </div>
+        <div class="form-group">
+          <label>Короткий опис ситуації</label>
+          <textarea id="description" rows="3" placeholder="Що сталося..."></textarea>
+        </div>
+        <div class="form-group">
+          <label>Свідки (ПІБ, контакти)</label>
+          <textarea id="witnesses" rows="2"></textarea>
+        </div>
+
+        <button type="button" id="btn-generate" class="btn primary">Згенерувати текст скарги</button>
+      </form>
+    </section>
+
+    <!-- Крок 4: Згенерована скарга -->
+    <section id="step-complaint" class="card hidden">
+      <h2>3. Текст скарги</h2>
+      <p class="hint">Перевірте і скопіюйте. Можете подати через офіційні канали або відправити рекомендованим листом.</p>
+      <textarea id="complaint-text" rows="18" readonly></textarea>
+      <div class="btn-row">
+        <button id="btn-copy" class="btn primary">Скопіювати текст</button>
+        <button id="btn-restart" class="btn">Почати спочатку</button>
+      </div>
+      <p id="copy-status" class="status"></p>
+    </section>
+
+    <footer>
+      <p>Правовий контакт — MVP · Не замінює консультацію адвоката</p>
+      <p><a href="https://github.com/farbaevgen-glitch/Pravovyi-kontakt" target="_blank">Репозиторій на GitHub</a></p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
